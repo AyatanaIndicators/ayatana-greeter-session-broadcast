@@ -1,0 +1,66 @@
+Introduction
+------------
+
+The session broadcast service exists to provide a way for the greeter
+to be able to communicate back to the user session information about
+the user's desires without having to connect to the session and provide
+access to all that it would contain.  This is because the greeter is
+untrusted in a multi-user system, and thus shouldn't connect to the user's
+session.  While this does allow more access than most multi-user systems
+would allos, it is designed for cases of single user systems that have
+multi-user for security and thus is about limiting the interaction
+more than providing complete security around the session.
+
+How it works
+------------
+
+The greeter session can send a message to a service that exists on the system
+DBus.  That messages is then rebroadcast as a signal coming from the well-known
+name of the system service.  Each user session that is currently active has a
+listener for that well known signal and acts on it taking into account the current
+settings of the session.
+
+
+            Greeter Session                                    User Session
+    +----------------------------------+           +------------------------------------+
+    |                                  |           |                                    |
+    |                                  |           |                                    |
+    |          +--------------------+  |           |  +-------------------+             |
+    |          |                    |  |           |  |                   |             |
+    |          |                    |  |           |  |                   |             |
+    |          |    Greeter         |  |           |  |   User Agent      |             |
+    |          |                    |  |           |  |                   |             |
+    |          |                    |  |           |  |                   |             |
+    |          +--------------------+  |           |  +-------------------+             |
+    |                             +    |           |           +                        |
+    |                             |    |           |           |                        |
+    |                             |    |           |           |                        |
+    +-----------------------------|----+           +-----------|------------------------+
+                                  |Sends message               | Listens for Signal
+                                  |                            |
+               +------------------|----------------------------|---------+
+               |                  |                            v         |
+               |  System Bus      |                   ^                  |
+               +------------------|-------------------|------------------+
+                                  v                   + Emits Signal
+                               +-----------------------------+
+                               |                             |
+                               |   Session Broadcast         |
+                               |                             |
+                               +-----------------------------+
+
+Security
+--------
+
+As noted in the introduction we're not creating something that is completely
+secure, but that doesn't mean we can't take some measures to ensure that security
+isn't forgotten.  So the following policies are in place:
+
+ * Messages are only accepted from the lightdm user.  All other messages from
+   other folks on the bus are rejected.
+ * The User session will have a configuration option to whether the events will
+   be acted on.  This allows for configuring user sessions to be more secure if
+   needed for particular uses (enterprise, government, etc.)
+ * Each message and feature will be well defined without dictionaries or other
+   extension mechanisms.
+
