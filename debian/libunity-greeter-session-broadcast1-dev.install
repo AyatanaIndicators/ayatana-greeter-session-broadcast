@@ -1,0 +1,3 @@
+debian/tmp/usr/include/libunity-greeter-session-broadcast-1/*
+debian/tmp/usr/lib/*/libunity-greeter-session-broadcast.so
+debian/tmp/usr/lib/*/pkgconfig/unity-greeter-session-broadcast-1.pc
