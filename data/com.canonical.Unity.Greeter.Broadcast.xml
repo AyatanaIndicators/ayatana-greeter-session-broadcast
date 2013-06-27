@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<node name="/com/canonical/Unity/Greeter/Broadcast">
+<node>
 	<interface name="com.canonical.Unity.Greeter.Broadcast">
 		<!-- From the Greeter -->
 		<method name="RequestApplicationStart">
