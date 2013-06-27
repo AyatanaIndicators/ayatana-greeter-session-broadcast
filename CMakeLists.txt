@@ -36,6 +36,9 @@ include_directories(${GOBJECT2_INCLUDE_DIRS})
 pkg_check_modules(GIO2 REQUIRED gio-2.0)
 include_directories(${GIO2_INCLUDE_DIRS})
 
+pkg_check_modules(GIO_UNIX2 REQUIRED gio-unix-2.0)
+include_directories(${GIO_UNIX2_INCLUDE_DIRS})
+
 if(${LOCAL_INSTALL})
   set(DBUSSERVICEDIR "${CMAKE_INSTALL_DATADIR}/dbus-1/services/")
 else()
