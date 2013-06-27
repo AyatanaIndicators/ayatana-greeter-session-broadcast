@@ -19,7 +19,7 @@ NAMESPACE ServiceIface
 SERVICE_XML ${CMAKE_CURRENT_SOURCE_DIR}/../data/com.canonical.Unity.Greeter.Broadcast.xml
 )
 
-add_library(service-generated STATIC ${HUD_SERVICE_GENERATED_SOURCES})
+add_library(service-generated STATIC ${SERVICE_GENERATED_SOURCES})
 
 target_link_libraries(service-generated
 ${GLIB2_LIBRARIES}

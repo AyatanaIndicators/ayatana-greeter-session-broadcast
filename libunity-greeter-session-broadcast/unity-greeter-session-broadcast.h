@@ -14,6 +14,6 @@ unity_session_greeter_broadcast_request_app_start (const gchar * username,
 
 G_END_DECLS
 
-#pragma GCC visiblity pop
+#pragma GCC visibility pop
 
 #endif /* __UNITY_GREETER_SESSION_BROADCAST_H__ */
