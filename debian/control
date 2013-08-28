@@ -8,23 +8,23 @@ Build-Depends: cmake,
                dh-autoreconf,
                gtester2xunit,
                intltool,
-               libdbustest1-dev,
                libdbus-1-dev,
+               libdbustest1-dev,
                libglib2.0-bin,
                python3-dbusmock,
 Standards-Version: 3.9.4
 Homepage: http://launchpad.net/unity-greeter-session-broadcast
-# If you aren't a member of ~indicator-applet-developers but need to upload
-# packaging changes, just go ahead.  ~indicator-applet-developers will notice
+# If you aren't a member of ~indicator-applet-developers but need to upload 
+# packaging changes, just go ahead. ~indicator-applet-developers will notice 
 # and sync up the code again.
 Vcs-Bzr: http://bazaar.launchpad.net/~indicator-applet-developers/unity-greeter-session-broadcast/
 Vcs-Browser: https://code.launchpad.net/~indicator-applet-developers/unity-greeter-session-broadcast/
 
 Package: unity-greeter-session-broadcast
 Architecture: any
-Depends: ${misc:Depends},
+Depends: upstart-app-launch,
+         ${misc:Depends},
          ${shlibs:Depends},
-         upstart-app-launch,
 Description: Service to allow the greeter to communicate to sessions
  Allows for the greeter to send events that can be picked up by the user's
  session and acted on if allowed by the user.
@@ -34,11 +34,11 @@ Description: Service to allow the greeter to communicate to sessions
 Package: libunity-greeter-session-broadcast1
 Section: libs
 Architecture: any
-Depends: ${shlibs:Depends},
-         ${misc:Depends},
-Pre-Depends: ${misc:Pre-Depends}
+Depends: ${misc:Depends},
+         ${shlibs:Depends},
+Pre-Depends: ${misc:Pre-Depends},
 Multi-Arch: same
-Recommends: unity-greeter-session-broadcast (= ${binary:Version})
+Recommends: unity-greeter-session-broadcast (= ${binary:Version}),
 Description: library for sending requests to the user session
  Sends requests to the broadcast service so that they can be seen
  by the user session.
@@ -48,14 +48,13 @@ Description: library for sending requests to the user session
 Package: libunity-greeter-session-broadcast1-dev
 Section: libdevel
 Architecture: any
-Depends: ${shlibs:Depends},
-         ${misc:Depends},
+Depends: libglib2.0-dev,
          libunity-greeter-session-broadcast1 (= ${binary:Version}),
-         libglib2.0-dev
+         ${misc:Depends},
+         ${shlibs:Depends},
 Multi-Arch: same
 Description: library for sending requests to the user session
  Sends requests to the broadcast service so that they can be seen
  by the user session.
  .
  This package contains files that are needed to build the greeter.
-
