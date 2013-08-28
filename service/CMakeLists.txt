@@ -30,11 +30,19 @@ ${GOBJECT2_LIBRARIES}
 # Service Executable
 ###########################
 
+include_directories(
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_BINARY_DIR}
+)
+
 add_executable(service-exec service.c)
 
 set_target_properties(service-exec PROPERTIES OUTPUT_NAME "unity-greeter-session-broadcast-service")
 
-target_link_libraries(service-exec service-generated)
+target_link_libraries(service-exec
+service-generated
+${GIO2_LIBRARIES}
+)
 
 ###########################
 # Installation
