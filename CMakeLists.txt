@@ -67,7 +67,7 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c11 -fPIC")
 
 add_subdirectory(data)
 add_subdirectory(service)
-add_subdirectory(libunity-greeter-session-broadcast)
+#add_subdirectory(libunity-greeter-session-broadcast)
 
 # TODO
 # enable_testing()
