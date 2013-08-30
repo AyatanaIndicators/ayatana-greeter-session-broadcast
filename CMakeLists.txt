@@ -40,11 +40,11 @@ pkg_check_modules(GIO_UNIX2 REQUIRED gio-unix-2.0)
 include_directories(${GIO_UNIX2_INCLUDE_DIRS})
 
 if(${LOCAL_INSTALL})
-  set(DBUSSERVICEDIR "${CMAKE_INSTALL_DATADIR}/dbus-1/services/")
+  set(DBUSSERVICEDIR "${CMAKE_INSTALL_DATADIR}/dbus-1/system-services/")
 else()
   EXEC_PROGRAM(${PKG_CONFIG_EXECUTABLE} ARGS dbus-1 --variable system_bus_services_dir OUTPUT_VARIABLE DBUSSERVICEDIR )
 endif()
-message("Installing DBus services to ${DBUSSERVICEDIR}")
+message("Installing DBus system services to ${DBUSSERVICEDIR}")
 
 if(${LOCAL_INSTALL})
   set(DBUSSYSCONFDIR "${CMAKE_INSTALL_SYSCONFDIR}")
