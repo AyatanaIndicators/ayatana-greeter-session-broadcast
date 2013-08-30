@@ -1,12 +1,27 @@
-unity-greeter-session-broadcast (0.1-0ubuntu2) UNRELEASED; urgency=low
+unity-greeter-session-broadcast (0.1+13.10.20130830.1-0ubuntu1) saucy; urgency=low
 
+  [ Łukasz 'sil2100' Zemczak ]
   * Remove debian/watch
   * debian/control:
     - Modifications related to compliance with our packaging standards
   * Added copyright info in the source code
   * Automatic snapshot from revision 14 (bootstrap)
 
- -- Łukasz 'sil2100' Zemczak <lukasz.zemczak@canonical.com>  Tue, 09 Jul 2013 18:36:53 +0200
+  [ Michael Terry ]
+  * Implement the basic service. Adds RequestApplicationStart method
+    which sends out a StartApplication signal.
+  * Fix licensing to specify GPL-3 or LGPL-3 as appropriate.
+
+  [ Ted Gould ]
+  * Signal the start instead of starting it directly.
+
+  [ Łukasz 'sil2100' Zemczak ]
+  * The name for copyright is COPYING, not COPYRIGHT in our projects
+
+  [ Ubuntu daily release ]
+  * Automatic snapshot from revision 19
+
+ -- Ubuntu daily release <ps-jenkins@lists.canonical.com>  Fri, 30 Aug 2013 06:04:22 +0000
 
 unity-greeter-session-broadcast (0.1-0ubuntu1) saucy; urgency=low
 
