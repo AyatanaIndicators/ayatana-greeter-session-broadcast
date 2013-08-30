@@ -10,6 +10,16 @@ DESTINATION ${DBUSIFACEDIR}
 )
 
 ###########################
+# DBus Policy Files
+###########################
+
+install(
+FILES
+com.canonical.Unity.Greeter.Broadcast.conf
+DESTINATION ${DBUSSYSCONFDIR}/dbus-1/system.d
+)
+
+###########################
 # Dbus Services
 ###########################
 

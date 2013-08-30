@@ -47,6 +47,13 @@ endif()
 message("Installing DBus services to ${DBUSSERVICEDIR}")
 
 if(${LOCAL_INSTALL})
+  set(DBUSSYSCONFDIR "${CMAKE_INSTALL_SYSCONFDIR}")
+else()
+  EXEC_PROGRAM(${PKG_CONFIG_EXECUTABLE} ARGS dbus-1 --variable sysconfdir OUTPUT_VARIABLE DBUSSYSCONFDIR)
+endif()
+message("Installing DBus policy files to ${DBUSSYSCONFDIR}")
+
+if(${LOCAL_INSTALL})
   set(DBUSIFACEDIR "${CMAKE_INSTALL_DATADIR}/dbus-1/interfaces/")
 else()
   EXEC_PROGRAM(${PKG_CONFIG_EXECUTABLE} ARGS dbus-1 --variable interfaces_dir OUTPUT_VARIABLE DBUSIFACEDIR )
