@@ -42,7 +42,7 @@ include_directories(${GIO_UNIX2_INCLUDE_DIRS})
 if(${LOCAL_INSTALL})
   set(DBUSSERVICEDIR "${CMAKE_INSTALL_DATADIR}/dbus-1/services/")
 else()
-  EXEC_PROGRAM(${PKG_CONFIG_EXECUTABLE} ARGS dbus-1 --variable session_bus_services_dir OUTPUT_VARIABLE DBUSSERVICEDIR )
+  EXEC_PROGRAM(${PKG_CONFIG_EXECUTABLE} ARGS dbus-1 --variable system_bus_services_dir OUTPUT_VARIABLE DBUSSERVICEDIR )
 endif()
 message("Installing DBus services to ${DBUSSERVICEDIR}")
 
