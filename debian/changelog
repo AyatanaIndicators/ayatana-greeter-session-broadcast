@@ -1,3 +1,17 @@
+unity-greeter-session-broadcast (0.1+13.10.20130902-0ubuntu1) saucy; urgency=low
+
+  [ Michael Terry ]
+  * Don't build or install the library right now. It's not finished and
+    isn't used yet.
+
+  [ Ted Gould ]
+  * Get name owner and make sure it matches the sender.
+
+  [ Ubuntu daily release ]
+  * Automatic snapshot from revision 23
+
+ -- Ubuntu daily release <ps-jenkins@lists.canonical.com>  Mon, 02 Sep 2013 02:04:14 +0000
+
 unity-greeter-session-broadcast (0.1+13.10.20130830.2-0ubuntu1) saucy; urgency=low
 
   * Automatic snapshot from revision 20
