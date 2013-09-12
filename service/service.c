@@ -34,6 +34,19 @@ on_handle_request_application_start (ServiceIfaceComCanonicalUnityGreeterBroadca
     return TRUE;
 }
 
+static gboolean
+on_handle_request_home_shown (ServiceIfaceComCanonicalUnityGreeterBroadcast *object,
+                              GDBusMethodInvocation *invocation,
+                              const gchar *arg_username)
+{
+    /* Simply pass the request on */
+    service_iface_com_canonical_unity_greeter_broadcast_emit_show_home (object,
+                                                                        arg_username);
+    service_iface_com_canonical_unity_greeter_broadcast_complete_request_home_shown (object,
+                                                                                     invocation);
+    return TRUE;
+}
+
 static void
 on_bus_acquired (GDBusConnection *connection,
                  const gchar     *name,
@@ -73,6 +86,10 @@ main (int argc, char * argv[])
     g_signal_connect (interface,
                       "handle-request-application-start",
                       G_CALLBACK (on_handle_request_application_start),
+                      NULL);
+    g_signal_connect (interface,
+                      "handle-request-home-shown",
+                      G_CALLBACK (on_handle_request_home_shown),
                       NULL);
 
     owner_id = g_bus_own_name (G_BUS_TYPE_SYSTEM,
