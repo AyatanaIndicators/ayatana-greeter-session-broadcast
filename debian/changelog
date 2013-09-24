@@ -1,3 +1,14 @@
+unity-greeter-session-broadcast (0.1+13.10.20130924.1-0ubuntu1) saucy; urgency=low
+
+  [ Michael Terry ]
+  * Add a RequestHomeShown method and ShowHome signal for when we want
+    the dash to show itself and hide the applications.
+
+  [ Ubuntu daily release ]
+  * Automatic snapshot from revision 25
+
+ -- Ubuntu daily release <ps-jenkins@lists.canonical.com>  Tue, 24 Sep 2013 06:03:43 +0000
+
 unity-greeter-session-broadcast (0.1+13.10.20130902-0ubuntu1) saucy; urgency=low
 
   [ Michael Terry ]
