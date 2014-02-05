@@ -1,0 +1,13 @@
+Test-case unity-greeter-session-broadcast/application-on-greeter
+<dl>
+    <dt>NOTE: This test requires the separated greeter to land before it can be executed</dt>
+	<dt>Go to the home screen of the shell</dt>
+	<dt>Lock the screen of the device</dt>
+	<dt>Click the power button to cause the screen to turn on</dt>
+	    <dd>The screen should contain the lock screen</dd>
+	<dt>Slide on the left edge to reveal the launcher</dt>
+	    <dd>The launcher should appear with several apps on it</dd>
+	<dt>Select one of the apps on the launcher</dt>
+	    <dd>If there is a PIN set the dialog should be shown, enter the PIN</dd>
+		<dd>The session should open with the selected app in focus</dd>
+</dl>
