@@ -1,3 +1,17 @@
+unity-greeter-session-broadcast (0.1+14.04.20140217.1-0ubuntu1) trusty; urgency=low
+
+  [ Ted Gould ]
+  * Use new Upstart dbus syntax.
+  * Merge policy and manual test.
+  * Flushing trunk with a release
+
+  [ Didier Roche ]
+  * Add libupstart-app-launch2-dev build-dep, which isn't needed itself
+    but it enables to not build on archs unsupported by upstart-app-
+    launch (which is a binary dep).
+
+ -- Ubuntu daily release <ps-jenkins@lists.canonical.com>  Mon, 17 Feb 2014 18:05:24 +0000
+
 unity-greeter-session-broadcast (0.1+13.10.20130924.1-0ubuntu1) saucy; urgency=low
 
   [ Michael Terry ]
