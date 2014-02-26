@@ -11,3 +11,28 @@ Test-case unity-greeter-session-broadcast/application-on-greeter
 	    <dd>If there is a PIN set the dialog should be shown, enter the PIN</dd>
 		<dd>The session should open with the selected app in focus</dd>
 </dl>
+
+Test-case unity-greeter-session-broadcast/sound-control-relay
+<dl>
+    <dt>NOTE: This test requires the separated greeter to land before it can be executed</dt>
+	<dt>Start Music playing using the music app (may require copying music to the device)</dt>
+	    <dd>Music should be playing out the speaker</dd>
+	<dt>Open the Sound Indicator</dt>
+	    <dd>The music player should be listed</dd>
+	    <dd>The currently playing song should be shown</dd>
+	<dt>Lock the screen of the device</dt>
+	    <dd>Music should still be playing out the speaker</dd>
+	<dt>Click the power button to cause the screen to turn on</dt>
+	    <dd>The screen should contain the lock screen</dd>
+	<dt>Open the Sound Indicator</dt>
+	    <dd>The music player should be listed</dd>
+	    <dd>The currently playing song should be shown</dd>
+	<dt>Press the Pause button</dt>
+	    <dd>The music should stop playing</dd>
+	<dt>Press the Play button</dt>
+	    <dd>The music should continue where it left off</dd>
+	<dt>Press the Next button</dt>
+	    <dd>The music should switch to the next track</dd>
+	<dt>Press the Previous button</dt>
+	    <dd>The music should switch to the previously playing track</dd>
+</dl>
