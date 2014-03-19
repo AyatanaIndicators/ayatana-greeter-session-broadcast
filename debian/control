@@ -26,7 +26,7 @@ Vcs-Browser: https://code.launchpad.net/~indicator-applet-developers/unity-greet
 Package: unity-greeter-session-broadcast
 Architecture: any
 Depends: upstart (>= 1.10-0ubuntu2),
-         upstart-app-launch,
+         url-dispatcher-tools,
          ${misc:Depends},
          ${shlibs:Depends},
 Description: Service to allow the greeter to communicate to sessions

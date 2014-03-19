@@ -23,12 +23,12 @@ static gboolean
 on_handle_request_application_start (ServiceIfaceComCanonicalUnityGreeterBroadcast *object,
                                      GDBusMethodInvocation *invocation,
                                      const gchar *arg_username,
-                                     const gchar *arg_appId)
+                                     const gchar *arg_url)
 {
     /* Simply pass the request on */
     service_iface_com_canonical_unity_greeter_broadcast_emit_start_application (object,
                                                                                 arg_username,
-                                                                                arg_appId);
+                                                                                arg_url);
     service_iface_com_canonical_unity_greeter_broadcast_complete_request_application_start (object,
                                                                                             invocation);
     return TRUE;

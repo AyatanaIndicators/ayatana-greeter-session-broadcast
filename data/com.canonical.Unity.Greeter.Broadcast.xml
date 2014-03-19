@@ -4,7 +4,7 @@
 		<!-- From the Greeter -->
 		<method name="RequestApplicationStart">
 			<arg type="s" name="username" direction="in" />
-			<arg type="s" name="appId" direction="in" />
+			<arg type="s" name="url" direction="in" />
 		</method>
 
 		<method name="RequestHomeShown">
@@ -14,7 +14,7 @@
 		<!-- To the Session -->
 		<signal name="StartApplication">
 			<arg type="s" name="username" direction="out" />
-			<arg type="s" name="appId" direction="out" />
+			<arg type="s" name="url" direction="out" />
 		</signal>
 
 		<signal name="ShowHome">
