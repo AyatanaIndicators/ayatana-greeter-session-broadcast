@@ -1,10 +1,10 @@
 <schemalist>
 	<schema id="com.canonical.Unity.Greeter.Broadcast" path="/com/canonical/Unity/Greeter/Broadcast/" gettext-domain="unity-greeter-session-broadcast">
-		<key name="allow-start-application" type="b">
-			<summary>Allow the Greeter to start applications in this session</summary>
+		<key name="allow-start-url" type="b">
+			<summary>Allow the Greeter to start URLs in this session</summary>
 			<description>
 				The key controls whether the service in the session will listen
-				for and react to the request from the greeter to start an application
+				for and react to the request from the greeter to start an url
 				from the greeter.
 			</description>
 			<default>true</default>

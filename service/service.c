@@ -20,17 +20,17 @@
 #include "service-iface.h"
 
 static gboolean
-on_handle_request_application_start (ServiceIfaceComCanonicalUnityGreeterBroadcast *object,
-                                     GDBusMethodInvocation *invocation,
-                                     const gchar *arg_username,
-                                     const gchar *arg_url)
+on_handle_request_url_start (ServiceIfaceComCanonicalUnityGreeterBroadcast *object,
+                             GDBusMethodInvocation *invocation,
+                             const gchar *arg_username,
+                             const gchar *arg_url)
 {
     /* Simply pass the request on */
-    service_iface_com_canonical_unity_greeter_broadcast_emit_start_application (object,
-                                                                                arg_username,
-                                                                                arg_url);
-    service_iface_com_canonical_unity_greeter_broadcast_complete_request_application_start (object,
-                                                                                            invocation);
+    service_iface_com_canonical_unity_greeter_broadcast_emit_start_url (object,
+                                                                        arg_username,
+                                                                        arg_url);
+    service_iface_com_canonical_unity_greeter_broadcast_complete_request_url_start (object,
+                                                                                    invocation);
     return TRUE;
 }
 
@@ -84,8 +84,8 @@ main (int argc, char * argv[])
     interface = service_iface_com_canonical_unity_greeter_broadcast_skeleton_new ();
 
     g_signal_connect (interface,
-                      "handle-request-application-start",
-                      G_CALLBACK (on_handle_request_application_start),
+                      "handle-request-url-start",
+                      G_CALLBACK (on_handle_request_url_start),
                       NULL);
     g_signal_connect (interface,
                       "handle-request-home-shown",
