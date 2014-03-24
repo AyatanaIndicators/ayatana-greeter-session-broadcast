@@ -47,6 +47,45 @@ on_handle_request_home_shown (ServiceIfaceComCanonicalUnityGreeterBroadcast *obj
     return TRUE;
 }
 
+static gboolean
+on_handle_request_sound_play_pause (ServiceIfaceComCanonicalUnityGreeterBroadcast *object,
+                                    GDBusMethodInvocation *invocation,
+                                    const gchar *arg_username)
+{
+    /* Simply pass the request on */
+    service_iface_com_canonical_unity_greeter_broadcast_emit_sound_play_pause (object,
+                                                                               arg_username);
+    service_iface_com_canonical_unity_greeter_broadcast_complete_request_sound_play_pause (object,
+                                                                                           invocation);
+    return TRUE;
+}
+
+static gboolean
+on_handle_request_sound_next (ServiceIfaceComCanonicalUnityGreeterBroadcast *object,
+                              GDBusMethodInvocation *invocation,
+                              const gchar *arg_username)
+{
+    /* Simply pass the request on */
+    service_iface_com_canonical_unity_greeter_broadcast_emit_sound_next (object,
+                                                                         arg_username);
+    service_iface_com_canonical_unity_greeter_broadcast_complete_request_sound_next (object,
+                                                                                     invocation);
+    return TRUE;
+}
+
+static gboolean
+on_handle_request_sound_prev (ServiceIfaceComCanonicalUnityGreeterBroadcast *object,
+                              GDBusMethodInvocation *invocation,
+                              const gchar *arg_username)
+{
+    /* Simply pass the request on */
+    service_iface_com_canonical_unity_greeter_broadcast_emit_sound_prev (object,
+                                                                         arg_username);
+    service_iface_com_canonical_unity_greeter_broadcast_complete_request_sound_prev (object,
+                                                                                     invocation);
+    return TRUE;
+}
+
 static void
 on_bus_acquired (GDBusConnection *connection,
                  const gchar     *name,
@@ -83,6 +122,7 @@ main (int argc, char * argv[])
 
     interface = service_iface_com_canonical_unity_greeter_broadcast_skeleton_new ();
 
+    /* Application Launching */
     g_signal_connect (interface,
                       "handle-request-application-start",
                       G_CALLBACK (on_handle_request_application_start),
@@ -90,6 +130,20 @@ main (int argc, char * argv[])
     g_signal_connect (interface,
                       "handle-request-home-shown",
                       G_CALLBACK (on_handle_request_home_shown),
+                      NULL);
+
+    /* Sound stuff */
+    g_signal_connect (interface,
+                      "handle-request-sound-play-pause",
+                      G_CALLBACK (on_handle_request_sound_play_pause),
+                      NULL);
+    g_signal_connect (interface,
+                      "handle-request-sound-next",
+                      G_CALLBACK (on_handle_request_sound_next),
+                      NULL);
+    g_signal_connect (interface,
+                      "handle-request-sound-prev",
+                      G_CALLBACK (on_handle_request_sound_prev),
                       NULL);
 
     owner_id = g_bus_own_name (G_BUS_TYPE_SYSTEM,

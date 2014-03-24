@@ -11,6 +11,18 @@
 			<arg type="s" name="username" direction="in" />
 		</method>
 
+		<method name="RequestSoundPlayPause">
+			<arg type="s" name="username" direction="in" />
+		</method>
+
+		<method name="RequestSoundNext">
+			<arg type="s" name="username" direction="in" />
+		</method>
+
+		<method name="RequestSoundPrev">
+			<arg type="s" name="username" direction="in" />
+		</method>
+
 		<!-- To the Session -->
 		<signal name="StartApplication">
 			<arg type="s" name="username" direction="out" />
@@ -18,6 +30,18 @@
 		</signal>
 
 		<signal name="ShowHome">
+			<arg type="s" name="username" direction="out" />
+		</signal>
+
+		<signal name="SoundPlayPause">
+			<arg type="s" name="username" direction="out" />
+		</signal>
+
+		<signal name="SoundNext">
+			<arg type="s" name="username" direction="out" />
+		</signal>
+
+		<signal name="SoundPrev">
 			<arg type="s" name="username" direction="out" />
 		</signal>
 
