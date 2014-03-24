@@ -2,9 +2,9 @@
 <node>
 	<interface name="com.canonical.Unity.Greeter.Broadcast">
 		<!-- From the Greeter -->
-		<method name="RequestApplicationStart">
+		<method name="RequestUrlStart">
 			<arg type="s" name="username" direction="in" />
-			<arg type="s" name="appId" direction="in" />
+			<arg type="s" name="url" direction="in" />
 		</method>
 
 		<method name="RequestHomeShown">
@@ -24,9 +24,9 @@
 		</method>
 
 		<!-- To the Session -->
-		<signal name="StartApplication">
+		<signal name="StartUrl">
 			<arg type="s" name="username" direction="out" />
-			<arg type="s" name="appId" direction="out" />
+			<arg type="s" name="url" direction="out" />
 		</signal>
 
 		<signal name="ShowHome">
