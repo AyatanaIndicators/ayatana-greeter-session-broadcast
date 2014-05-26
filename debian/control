@@ -13,8 +13,8 @@ Build-Depends: cmake,
                libglib2.0-bin,
                python3-dbusmock,
 # This build-dep isn't needed as per itself, but it enables to not build
-# on archs unsupported by upstart-app-launch which is a binary dep
-               libupstart-app-launch2-dev,
+# on archs unsupported by ubuntu-app-launch which is a binary dep
+               libubuntu-app-launch2-dev,
 Standards-Version: 3.9.4
 Homepage: http://launchpad.net/unity-greeter-session-broadcast
 # If you aren't a member of ~indicator-applet-developers but need to upload 
