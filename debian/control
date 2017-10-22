@@ -1,49 +1,41 @@
-Source: unity-greeter-session-broadcast
-Section: gnome
+Source: ayatana-greeter-session-broadcast
+Section: x11
 Priority: optional
-Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Maintainer: Mike Gabriel <mike.gabriel@das-netzwerkteam.de>
 Build-Depends: cmake,
                dbus-test-runner,
                debhelper (>= 9),
+               dpkg-dev (>= 1.16.1.1),
                dh-autoreconf,
-               gtester2xunit,
                intltool,
                libdbus-1-dev,
                libdbustest1-dev,
                libglib2.0-bin,
                python3-dbusmock,
-# This build-dep isn't needed as per itself, but it enables to not build
-# on archs unsupported by ubuntu-app-launch which is a binary dep
-               libubuntu-app-launch2-dev,
-Standards-Version: 3.9.4
-Homepage: http://launchpad.net/unity-greeter-session-broadcast
-# If you aren't a member of ~indicator-applet-developers but need to upload 
-# packaging changes, just go ahead. ~indicator-applet-developers will notice 
-# and sync up the code again.
-Vcs-Bzr: http://bazaar.launchpad.net/~indicator-applet-developers/unity-greeter-session-broadcast/
-Vcs-Browser: https://code.launchpad.net/~indicator-applet-developers/unity-greeter-session-broadcast/
+Standards-Version: 4.1.1
+Homepage: https://github.com/AyatanaIndicators/ayatana-greeter-session-broadcast
+Vcs-Git: git://cgit.arctica-project.org/ayatana/ayatana-ido.git
+Vcs-Browser: https://cgit.arctica-project.org/ayatana/ayatana-ido.git/
 
-Package: unity-greeter-session-broadcast
+Package: ayatana-greeter-session-broadcast
 Architecture: any
-Depends: upstart (>= 1.10-0ubuntu2),
-         url-dispatcher-tools,
-         ${misc:Depends},
+Depends: ${misc:Depends},
          ${shlibs:Depends},
-Description: Service to allow the greeter to communicate to sessions
- Allows for the greeter to send events that can be picked up by the user's
- session and acted on if allowed by the user.
+Description: Service to allow a LightDM greeter to communicate to a desktop session
+ Allows for the LightDM greeter to send events that can be picked up by
+ the user's session and acted upon if allowed by the user.
  .
- This package provides a service for Unity's Greeter Session Broadcast
+ This package provides the Ayatana Greeter Session Broadcast service.
 
-#Package: libunity-greeter-session-broadcast1
+#Package: libayatana-greeter-session-broadcast1
 #Section: libs
 #Architecture: any
 #Depends: ${misc:Depends},
 #         ${shlibs:Depends},
 #Pre-Depends: ${misc:Pre-Depends},
 #Multi-Arch: same
-#Recommends: unity-greeter-session-broadcast (= ${binary:Version}),
-#Description: library for sending requests to the user session
+#Recommends: ayatana-greeter-session-broadcast (= ${binary:Version}),
+#Description: Library for sending requests to the user session
 # Sends requests to the broadcast service so that they can be seen
 # by the user session.
 # .
@@ -57,7 +49,7 @@ Description: Service to allow the greeter to communicate to sessions
 #         ${misc:Depends},
 #         ${shlibs:Depends},
 #Multi-Arch: same
-#Description: library for sending requests to the user session
+#Description: Library for sending requests to the user session (development files)
 # Sends requests to the broadcast service so that they can be seen
 # by the user session.
 # .

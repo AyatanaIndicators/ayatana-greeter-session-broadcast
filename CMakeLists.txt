@@ -1,8 +1,9 @@
-project(unity-greeter-session-broadcast C)
+project(ayatana-greeter-session-broadcast C)
 cmake_minimum_required(VERSION 2.8.9)
 
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake" "${CMAKE_MODULE_PATH}")
 
+set (PROJECT_VERSION "0.1.1")
 set(PACKAGE ${CMAKE_PROJECT_NAME})
 set(GETTEXT_PACKAGE ${CMAKE_PROJECT_NAME})
 
@@ -67,7 +68,7 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c11 -fPIC")
 
 add_subdirectory(data)
 add_subdirectory(service)
-#add_subdirectory(libunity-greeter-session-broadcast)
+#add_subdirectory(libayatana-greeter-session-broadcast)
 
 # TODO
 # enable_testing()

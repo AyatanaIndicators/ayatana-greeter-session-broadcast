@@ -5,7 +5,7 @@
 
 install(
 FILES
-com.canonical.Unity.Greeter.Broadcast.xml
+org.ayatana.Desktop.Greeter.Broadcast.xml
 DESTINATION ${DBUSIFACEDIR}
 )
 
@@ -15,7 +15,7 @@ DESTINATION ${DBUSIFACEDIR}
 
 install(
 FILES
-com.canonical.Unity.Greeter.Broadcast.conf
+org.ayatana.Desktop.Greeter.Broadcast.conf
 DESTINATION ${DBUSSYSCONFDIR}/dbus-1/system.d
 )
 
@@ -24,11 +24,11 @@ DESTINATION ${DBUSSYSCONFDIR}/dbus-1/system.d
 ###########################
 
 set(BROADCAST_SERVICE
-"${CMAKE_CURRENT_BINARY_DIR}/com.canonical.Unity.Greeter.Broadcast.service"
+"${CMAKE_CURRENT_BINARY_DIR}/org.ayatana.Desktop.Greeter.Broadcast.service"
 )
 
-set(pkglibexecdir "${CMAKE_INSTALL_FULL_LIBEXECDIR}/unity-greeter-session-broadcast")
-configure_file("com.canonical.Unity.Greeter.Broadcast.service.in"
+set(pkglibexecdir "${CMAKE_INSTALL_FULL_LIBEXECDIR}/ayatana-greeter-session-broadcast")
+configure_file("org.ayatana.Desktop.Greeter.Broadcast.service.in"
   "${BROADCAST_SERVICE}"
   @ONLY
 )
@@ -44,7 +44,7 @@ DESTINATION ${DBUSSERVICEDIR}
 ###########################
 
 set(SESSION_UPSTART
-"${CMAKE_CURRENT_SOURCE_DIR}/unity-greeter-session-broadcast-session.conf"
+"${CMAKE_CURRENT_SOURCE_DIR}/ayatana-greeter-session-broadcast-session.conf"
 )
 
 install(
@@ -57,4 +57,4 @@ DESTINATION "/usr/share/upstart/sessions"
 # GSettings
 ###########################
 
-add_schema ("com.canonical.Unity.Greeter.Broadcast.gschema.xml")
+add_schema ("org.ayatana.Desktop.Greeter.Broadcast.gschema.xml")

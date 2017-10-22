@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=org.ayatana.Desktop.Greeter.Broadcast
+Exec=@pkglibexecdir@/ayatana-greeter-session-broadcast-service
+User=root

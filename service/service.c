@@ -20,68 +20,68 @@
 #include "service-iface.h"
 
 static gboolean
-on_handle_request_url_start (ServiceIfaceComCanonicalUnityGreeterBroadcast *object,
+on_handle_request_url_start (ServiceIfaceOrgAyatanaDesktopGreeterBroadcast *object,
                              GDBusMethodInvocation *invocation,
                              const gchar *arg_username,
                              const gchar *arg_url)
 {
     /* Simply pass the request on */
-    service_iface_com_canonical_unity_greeter_broadcast_emit_start_url (object,
+    service_iface_org_ayatana_desktop_greeter_broadcast_emit_start_url (object,
                                                                         arg_username,
                                                                         arg_url);
-    service_iface_com_canonical_unity_greeter_broadcast_complete_request_url_start (object,
+    service_iface_org_ayatana_desktop_greeter_broadcast_complete_request_url_start (object,
                                                                                     invocation);
     return TRUE;
 }
 
 static gboolean
-on_handle_request_home_shown (ServiceIfaceComCanonicalUnityGreeterBroadcast *object,
+on_handle_request_home_shown (ServiceIfaceOrgAyatanaDesktopGreeterBroadcast *object,
                               GDBusMethodInvocation *invocation,
                               const gchar *arg_username)
 {
     /* Simply pass the request on */
-    service_iface_com_canonical_unity_greeter_broadcast_emit_show_home (object,
+    service_iface_org_ayatana_desktop_greeter_broadcast_emit_show_home (object,
                                                                         arg_username);
-    service_iface_com_canonical_unity_greeter_broadcast_complete_request_home_shown (object,
+    service_iface_org_ayatana_desktop_greeter_broadcast_complete_request_home_shown (object,
                                                                                      invocation);
     return TRUE;
 }
 
 static gboolean
-on_handle_request_sound_play_pause (ServiceIfaceComCanonicalUnityGreeterBroadcast *object,
+on_handle_request_sound_play_pause (ServiceIfaceOrgAyatanaDesktopGreeterBroadcast *object,
                                     GDBusMethodInvocation *invocation,
                                     const gchar *arg_username)
 {
     /* Simply pass the request on */
-    service_iface_com_canonical_unity_greeter_broadcast_emit_sound_play_pause (object,
+    service_iface_org_ayatana_desktop_greeter_broadcast_emit_sound_play_pause (object,
                                                                                arg_username);
-    service_iface_com_canonical_unity_greeter_broadcast_complete_request_sound_play_pause (object,
+    service_iface_org_ayatana_desktop_greeter_broadcast_complete_request_sound_play_pause (object,
                                                                                            invocation);
     return TRUE;
 }
 
 static gboolean
-on_handle_request_sound_next (ServiceIfaceComCanonicalUnityGreeterBroadcast *object,
+on_handle_request_sound_next (ServiceIfaceOrgAyatanaDesktopGreeterBroadcast *object,
                               GDBusMethodInvocation *invocation,
                               const gchar *arg_username)
 {
     /* Simply pass the request on */
-    service_iface_com_canonical_unity_greeter_broadcast_emit_sound_next (object,
+    service_iface_org_ayatana_desktop_greeter_broadcast_emit_sound_next (object,
                                                                          arg_username);
-    service_iface_com_canonical_unity_greeter_broadcast_complete_request_sound_next (object,
+    service_iface_org_ayatana_desktop_greeter_broadcast_complete_request_sound_next (object,
                                                                                      invocation);
     return TRUE;
 }
 
 static gboolean
-on_handle_request_sound_prev (ServiceIfaceComCanonicalUnityGreeterBroadcast *object,
+on_handle_request_sound_prev (ServiceIfaceOrgAyatanaDesktopGreeterBroadcast *object,
                               GDBusMethodInvocation *invocation,
                               const gchar *arg_username)
 {
     /* Simply pass the request on */
-    service_iface_com_canonical_unity_greeter_broadcast_emit_sound_prev (object,
+    service_iface_org_ayatana_desktop_greeter_broadcast_emit_sound_prev (object,
                                                                          arg_username);
-    service_iface_com_canonical_unity_greeter_broadcast_complete_request_sound_prev (object,
+    service_iface_org_ayatana_desktop_greeter_broadcast_complete_request_sound_prev (object,
                                                                                      invocation);
     return TRUE;
 }
@@ -92,13 +92,13 @@ on_bus_acquired (GDBusConnection *connection,
                  gpointer         user_data)
 {
     GError *error = NULL;
-    ServiceIfaceComCanonicalUnityGreeterBroadcast *interface;
+    ServiceIfaceOrgAyatanaDesktopGreeterBroadcast *interface;
 
-    interface = (ServiceIfaceComCanonicalUnityGreeterBroadcast *)user_data;
+    interface = (ServiceIfaceOrgAyatanaDesktopGreeterBroadcast *)user_data;
 
     if (!g_dbus_interface_skeleton_export (G_DBUS_INTERFACE_SKELETON (interface),
                                            connection,
-                                           "/com/canonical/Unity/Greeter/Broadcast",
+                                           "/org/ayatana/Desktop/Greeter/Broadcast",
                                            &error))
     {
         g_error ("Unable to export interface: %s, exiting", error->message);
@@ -118,9 +118,9 @@ main (int argc, char * argv[])
 {
     guint owner_id;
     GMainLoop *loop;
-    ServiceIfaceComCanonicalUnityGreeterBroadcast *interface;
+    ServiceIfaceOrgAyatanaDesktopGreeterBroadcast *interface;
 
-    interface = service_iface_com_canonical_unity_greeter_broadcast_skeleton_new ();
+    interface = service_iface_org_ayatana_desktop_greeter_broadcast_skeleton_new ();
 
     /* Application Launching */
     g_signal_connect (interface,
@@ -147,7 +147,7 @@ main (int argc, char * argv[])
                       NULL);
 
     owner_id = g_bus_own_name (G_BUS_TYPE_SYSTEM,
-                               "com.canonical.Unity.Greeter.Broadcast",
+                               "org.ayatana.Desktop.Greeter.Broadcast",
                                G_BUS_NAME_OWNER_FLAGS_NONE,
                                on_bus_acquired,
                                NULL,

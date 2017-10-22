@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <node>
-	<interface name="com.canonical.Unity.Greeter.Broadcast">
+	<interface name="org.ayatana.Desktop.Greeter.Broadcast">
 		<!-- From the Greeter -->
 		<method name="RequestUrlStart">
 			<arg type="s" name="username" direction="in" />

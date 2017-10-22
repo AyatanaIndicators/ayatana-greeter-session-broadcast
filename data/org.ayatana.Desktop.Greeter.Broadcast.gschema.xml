@@ -1,5 +1,5 @@
 <schemalist>
-	<schema id="com.canonical.Unity.Greeter.Broadcast" path="/com/canonical/Unity/Greeter/Broadcast/" gettext-domain="unity-greeter-session-broadcast">
+	<schema id="org.ayatana.Desktop.Greeter.Broadcast" path="/org/ayatana/Desktop/Greeter/Broadcast/" gettext-domain="ayatana-greeter-session-broadcast">
 		<key name="allow-start-url" type="b">
 			<summary>Allow the Greeter to start URLs in this session</summary>
 			<description>

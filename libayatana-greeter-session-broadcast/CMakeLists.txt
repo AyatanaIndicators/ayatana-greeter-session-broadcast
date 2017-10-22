@@ -21,9 +21,9 @@ service-iface.c
 add_gdbus_codegen(
 OUTFILES GENERATED_SOURCES
 NAME service-iface
-PREFIX com.canonical.Unity.Greeter.Broadcast.
+PREFIX org.ayatana.Desktop.Greeter.Broadcast.
 NAMESPACE _ServiceIface
-SERVICE_XML ${CMAKE_CURRENT_SOURCE_DIR}/../data/com.canonical.Unity.Greeter.Broadcast.xml
+SERVICE_XML ${CMAKE_CURRENT_SOURCE_DIR}/../data/org.ayatana.Desktop.Greeter.Broadcast.xml
 )
 
 add_library(generated STATIC ${GENERATED_SOURCES})
@@ -41,11 +41,11 @@ ${GIO2_LIBRARIES}
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fvisibility=hidden")
 
 set(BROADCAST_HEADERS
-unity-greeter-session-broadcast.h
+ayatana-greeter-session-broadcast.h
 )
 
 set(BROADCAST_SOURCES
-unity-greeter-session-broadcast.c
+ayatana-greeter-session-broadcast.c
 )
 
 add_library(broadcast SHARED ${BROADCAST_SOURCES})
@@ -53,7 +53,7 @@ add_library(broadcast SHARED ${BROADCAST_SOURCES})
 set_target_properties(broadcast PROPERTIES
   VERSION ${API_VERSION}.0.0
   SOVERSION ${ABI_VERSION}
-  OUTPUT_NAME "unity-greeter-session-broadcast"
+  OUTPUT_NAME "ayatana-greeter-session-broadcast"
 )
 
 target_link_libraries(broadcast
@@ -67,13 +67,13 @@ ${GOBJECT2_LIBRARIES}
 # Pkg Config
 ###########################
 
-set(BROADCAST_PC "unity-greeter-session-broadcast-${API_VERSION}.pc")
+set(BROADCAST_PC "ayatana-greeter-session-broadcast-${API_VERSION}.pc")
 set(apiversion "${API_VERSION}")
 set(libdir "${CMAKE_INSTALL_FULL_LIBDIR}")
 set(includedir "${CMAKE_INSTALL_FULL_INCLUDEDIR}")
 set(VERSION "${ABI_VERSION}")
 
-configure_file("unity-greeter-session-broadcast.pc.in" "${CMAKE_CURRENT_BINARY_DIR}/${BROADCAST_PC}" @ONLY)
+configure_file("ayatana-greeter-session-broadcast.pc.in" "${CMAKE_CURRENT_BINARY_DIR}/${BROADCAST_PC}" @ONLY)
 
 ###########################
 # Installation
@@ -81,7 +81,7 @@ configure_file("unity-greeter-session-broadcast.pc.in" "${CMAKE_CURRENT_BINARY_D
 
 install(
   FILES ${BROADCAST_HEADERS}
-  DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/libunity-greeter-session-broadcast-${API_VERSION}"
+  DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/libayatana-greeter-session-broadcast-${API_VERSION}"
 )
 
 install(

@@ -1,4 +1,0 @@
-[D-BUS Service]
-Name=com.canonical.Unity.Greeter.Broadcast
-Exec=@pkglibexecdir@/unity-greeter-session-broadcast-service
-User=root

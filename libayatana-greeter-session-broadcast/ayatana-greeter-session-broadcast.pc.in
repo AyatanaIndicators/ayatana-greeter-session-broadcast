@@ -1,0 +1,11 @@
+libdir=@libdir@
+includedir=@includedir@
+
+Cflags: -I${includedir}/libayatana-greeter-session-broadcast-@apiversion@
+Requires: glib-2.0 gio-2.0
+Libs: -L${libdir} -layatana-greeter-session-broadcast
+
+Name: libayatana-greeter-session-broadcast
+Description: Library to let a LightDM greeter request a session to do something.
+Version: @VERSION@
+
