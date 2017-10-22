@@ -1,0 +1,5 @@
+etc/dbus-1
+usr/lib/*/ayatana-greeter-session-broadcast
+usr/share/dbus-1
+usr/share/glib-2.0
+usr/share/upstart/sessions
